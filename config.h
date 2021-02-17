@@ -108,47 +108,42 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.65, alphaUnfocused = 0.2;
-
+float alpha = 0.5, alphaUnfocused = 0.2;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
-    /* 8 normal colors */
-    [0] = "#000000", /* black   */
-    [1] = "#f2777a", /* red     */
-    [2] = "#99cc99", /* green   */
-    [3] = "#ffcc66", /* yellow  */
-    [4] = "#6699cc", /* blue    */
-    [5] = "#cc99cc", /* magenta */
-    [6] = "#66cccc", /* cyan    */
-    [7] = "#ffffff", /* white   */
+  /* 8 normal colors */
+  [0] = "#111111", /* black   */
+  [1] = "#FFCCCC", /* red     */
+  [2] = "#CCDDAA", /* green   */
+  [3] = "#EEEEBB", /* yellow  */
+  [4] = "#BBCCEE", /* blue    */
+  [5] = "#9966cc", /* magenta */
+  [6] = "#CCEEFF", /* cyan    */
+  [7] = "#DDDDDD", /* white   */
 
-    /* 8 bright colors */
-    [8] = "#000000",  /* black   */
-    [9] = "#f2777a",  /* red     */
-    [10] = "#99cc99", /* green   */
-    [11] = "#ffcc66", /* yellow  */
-    [12] = "#6699cc", /* blue    */
-    [13] = "#cc99cc", /* magenta */
-    [14] = "#66cccc", /* cyan    */
-    [15] = "#ffffff", /* white   */
+  /* 8 bright colors */
+  [8]  = "#333333", /* black   */
+  [9]  = "#ff99cc", /* red     */
+  [10] = "#ccff99", /* green   */
+  [11] = "#ffff99", /* yellow  */
+  [12] = "#99ccff", /* blue    */
+  [13] = "#cc99ff", /* magenta */
+  [14] = "#99ffcc", /* cyan    */
+  [15] = "#ffffff", /* white   */
 
-    [255] = 0,
-
-    /* more colors can be added after 255 to use with DefaultXX */
-    "#cccccc",
-    "#555555",
-    "black",
-    "#cccccc",
+  /* special colors */
+  [256] = "#000000", /* background */
+  [257] = "#ffffff", /* foreground */
 };
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 7;
 static unsigned int defaultrcs = 257;
 unsigned int bg = 16, bgUnfocused = 16;
 
@@ -249,6 +244,7 @@ struct NormalModeShortcuts normalModeShortcuts[] = {
     {'S', "Qf"},
     {'X', "?romanma@void\n"},
     {'x', "/romanma@void\n"},
+    {'Y', "v$y"},
 };
 
 /*
